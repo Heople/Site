@@ -1,6 +1,11 @@
-body{
+html, body {
+  height: 100%;
+  height: -webkit-calc(100% - 55px);
+  height: -moz-calc(100% - 55px);
+  height: calc(100% - 55px);
+  padding: 0;
   margin: 0;
-  padding: 0
+
 }
 
 nav{
@@ -37,6 +42,41 @@ nav{
   padding-left: 12px;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.main-programme{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.choice-container{
+  width: 23%;
+  min-width: 350px;
+  position: relative;
+  border: 1px solid;
+  opacity: 0.5;
+}
+
+.overlay{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-width: 350px;
+  height: 100%;
+}
+
+.choice-container img{
+  margin: 50px 0 0 0 ;
+  width: 100%;
+  height: auto;
+}
+
 .prog-container{
-  margin: 0 50px;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid;
 }

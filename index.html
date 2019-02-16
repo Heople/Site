@@ -17,19 +17,29 @@
       <li class="menu-item"><a href="">Deconnexion</a></li>
     </ul>
   </nav>
+  <div class="main-programme">
+    <div class="choice-container">
+      <div class="overlay"></div>
+      <img src="img/body.png" alt="">
+    </div>
+    <div class="prog-container">
+      <p>Entrez le nom d'un exercice</p>
 
-  <div class="prog-container">
-    <p>Entrez le nom d'un exercice</p>
-    <input class="search-bar-exos" type="searchText" name="" value="" placeholder="Ex : triple salto du bras droit.">
+      <input class="search-bar-exos" type="textText" name="search" id="search" placeholder="Ex : triple salto du bras droit." list="searchresults" autocomplete="off">
+      <datalist id="searchresults"></datalist>
+      <p>Description</p>
+      <p class="description" style="width: 500px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus est eligendi totam numquam facere repellat soluta officiis quibusdam id. Tenetur fuga voluptates voluptas praesentium nisi architecto totam modi incidunt voluptatibus!</p>
 
-    <p>Description</p>
-    <p style="width: 500px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus est eligendi totam numquam facere repellat soluta officiis quibusdam id. Tenetur fuga voluptates voluptas praesentium nisi architecto totam modi incidunt voluptatibus!</p>
-    
+    </div>
   </div>
 
 
 
 
-    <script type="text/javascript" src="js/js"></script>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/js.js">
+
+    </script>
   </body>
 </html>
