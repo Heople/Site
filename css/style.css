@@ -1,10 +1,11 @@
 html, body {
   height: 100%;
-  height: -webkit-calc(100% - 55px);
-  height: -moz-calc(100% - 55px);
-  height: calc(100% - 55px);
+  /* height: -webkit-calc(100% - 30px);
+  height: -moz-calc(100% - 30px);
+  height: calc(100% - 30px); */
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
 
 }
 
@@ -12,6 +13,10 @@ nav{
   width: 100%;
   height: 55px;
   border-bottom: 1px solid grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+
 }
 
 .navigation{
@@ -32,31 +37,43 @@ nav{
 }
 
 .navigation li a:hover{
-  color: black;
+  color: #5cdbd9;
+}
+
+.navigation li:last-child{
+  position: absolute;
+  right: 20px;
 }
 
 .search-bar-exos{
-  width: 300px;
-  height: 18px;
-  border-radius: 30px;
+  width: 400px;
+  height: 35px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid black;
   padding-left: 12px;
 }
 
 textarea:focus, input:focus{
+    color: #5cdbd9;
+    box-shadow: 0 0 2pt 2pt #42c9b7;
     outline: none;
+    border: none;
 }
 
 .main-programme{
   display: flex;
   flex-direction: row;
   height: 100%;
+  min-height: 100%;
+  padding-top: 55px;
+  box-sizing: border-box;
 }
 
 .choice-container{
   width: 23%;
   min-width: 350px;
   position: relative;
-  border: 1px solid;
   opacity: 0.5;
 }
 
@@ -75,8 +92,10 @@ textarea:focus, input:focus{
 }
 
 .prog-container{
+  width: 50%;
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
 }
