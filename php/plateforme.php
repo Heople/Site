@@ -12,8 +12,6 @@ try {
 	     // conversion en json
 	    $json_output = json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 			echo  $json_output ;
-
-
 }
 catch(PDOException $e) {
 	echo $e->getMessage();

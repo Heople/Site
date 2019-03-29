@@ -39,11 +39,18 @@
             <option ng-repeat="exercice in exercices" value="{{exercice.Nom}}">
         </datalist>
     </div>
+    <br/>
+    <br />
+    Fréquence : <input id=fréquence></input> Récurrence <input id=récurrence></input>
 
     <h3>Titre : {{Nom}}</h3>
        <p>Description</p>
       <p class="description" style="width: 500px;">{{Description}}</p>
-      <button class="add-exercice" ng-model="SelectExercice" ng-click="AddExercice">Ajouter cet exerice</button>
+
+      <button class="add-exercice" ng-model="SelectExercice" ng-click="AddExercice">Ajouter cet exercice</button>
+      <button class="add-programme" ng-model="AddtExercice" ng-click="AddProgramme">Ajouter ce programme</button>
+    </div>
+    <div class="affichage">
     </div>
   </div>
 

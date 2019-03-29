@@ -1,6 +1,6 @@
 var app=angular.module('myapp',[]);
     app.controller('programmecontroller',function ($scope) {
-
+$i=0;
       //REQUETE RECUPERATION BDD
       //CONVERSION EN JSON
 $(".search-bar-exos").click(function() {
@@ -28,8 +28,11 @@ $(".search-bar-exos").click(function() {
 //     ]
 console.log("lblbl1");
 
+
+
     $scope.Nom = "";
     $scope.Description ="";
+    $scope.Id ="";
 
 
 
@@ -42,6 +45,8 @@ console.log("lblbl1");
               $scope.Nom = item.Nom;
               console.log("blblb");
               $scope.Description = item.Description;
+              $scope.id_exe = item.id_exe;
+              console.log($scope.id_exe);
           }
 
         });
@@ -49,9 +54,9 @@ console.log("lblbl1");
 
      }
 
-$('.titre-prog').change(function() {
-    var titre1= $('.titre-prog').val();
-    console.log($('.titre-prog').val());
+$('.add-programme').click(function() {
+    // var titre1= $('.titre-prog').val();
+    console.log(titre1);
                $.ajax({
 
                        url: "php/titre.php",
@@ -65,4 +70,31 @@ $('.titre-prog').change(function() {
                        }
                    });
      });
+$idtab = new Array();
+$('.add-exercice').click(function() {
+  var titre1= $('.titre-prog').val();
+    $i= $i+1;
+    var ajout="<p> Exercice "+$i+" : "+$scope.Nom+"</p>";
+    $('.affichage').append(ajout);
+    var exo1 = $scope.id_exe;
+    $idtab.push(exo1);
+    console.log($idtab);
+
+      $.ajax({
+
+              url: "php/titre.php",
+              data:{
+                idtab : $idtab, titre : titre1
+              },
+              type: 'post',
+              success: function(data) {
+                console.log(data);
+
+              }
+          });
+
+
+
+
+  });
  });
