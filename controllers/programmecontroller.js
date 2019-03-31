@@ -53,15 +53,38 @@ console.log("lblbl1");
 
 
      }
+     $idtab = new Array();
+     $('.add-exercice').click(function() {
+
+         $i= $i+1;
+         var ajout="<p> Exercice "+$i+" : "+$scope.Nom+"</p>";
+         $('.affichage').append(ajout);
+         var exo1 = $scope.id_exe;
+         $idtab.push(exo1);
+         console.log($idtab);
+});
+           // $.ajax({
+           //
+           //         url: "php/add_exercice.php",
+           //         data:{
+           //           idtab : $idtab
+           //         },
+           //         type: 'post',
+           //         success: function(data) {
+           //           console.log(data);
+           //
+           //         }
+           //     });
+
 
 $('.add-programme').click(function() {
-    // var titre1= $('.titre-prog').val();
+     var titre1= $('.titre-prog').val();
     console.log(titre1);
                $.ajax({
 
-                       url: "php/titre.php",
+                       url: "php/add_programme.php",
                        data:{
-                         titre : titre1
+                         titre : titre1, idtab : $idtab
                        },
                        type: 'post',
                        success: function(data) {
@@ -70,31 +93,9 @@ $('.add-programme').click(function() {
                        }
                    });
      });
-$idtab = new Array();
-$('.add-exercice').click(function() {
-  var titre1= $('.titre-prog').val();
-    $i= $i+1;
-    var ajout="<p> Exercice "+$i+" : "+$scope.Nom+"</p>";
-    $('.affichage').append(ajout);
-    var exo1 = $scope.id_exe;
-    $idtab.push(exo1);
-    console.log($idtab);
 
-      $.ajax({
-
-              url: "php/titre.php",
-              data:{
-                idtab : $idtab, titre : titre1
-              },
-              type: 'post',
-              success: function(data) {
-                console.log(data);
-
-              }
-          });
 
 
 
 
   });
- });
