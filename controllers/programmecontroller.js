@@ -54,7 +54,15 @@ console.log("lblbl1");
 
      }
      $idtab = new Array();
+     $tabfreq = new Array();
+     $tabrec = new Array();
      $('.add-exercice').click(function() {
+       var freq = $('#frequence').val();
+      var rec = $('#recurrence').val();
+      $tabfreq.push(freq);
+      $tabrec.push(rec);
+      console.log($tabfreq);
+      console.log($tabrec);
 
          $i= $i+1;
          var ajout="<p> Exercice "+$i+" : "+$scope.Nom+"</p>";
@@ -84,7 +92,7 @@ $('.add-programme').click(function() {
 
                        url: "php/add_programme.php",
                        data:{
-                         titre : titre1, idtab : $idtab
+                         titre : titre1, idtab : $idtab, tabfreq : $tabfreq, tabrec : $tabrec
                        },
                        type: 'post',
                        success: function(data) {
