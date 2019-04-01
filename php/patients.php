@@ -1,26 +1,26 @@
 <?php
+echo"TROLOLO";
 try {
-  //select.php
- $id = new PDO('mysql:host=localhost;dbname=e_kine', 'root', '');
- echo "blblbl";
- $id->exec('SET NAMES "utf8"');
- $output = array();
- $res = $id->query('SELECT * FROM `patient`');
- // $query = "SELECT * FROM patient";
- // $result = mysqli_query($connect, $query);
-  $obj = $res->fetchAll(PDO::FETCH_ASSOC);
- if(mysqli_num_rows($obj) > 0)
- {
-      while($row = mysqli_fetch_array($obj))
-      {
-           $output[] = $row;
-      }
-      // echo json_encode($output);
-      $json_output = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
- }
+  echo"TROLOLO";
+
+	$id = new PDO('mysql:host=localhost;dbname=e_kine', 'root', '');
+	// $id->set_charset("utf8");
+	 $id->exec('SET NAMES "utf8"');
+//	$id = mysqli_connect("venus","lbouque","","lbouque");
+	$res = $id->query('SELECT * FROM `patient`');
+	    $obj = $res->fetchAll(PDO::FETCH_ASSOC);
+  print_r($obj);
+	     // conversion en json
+       // $json_output =  htmlspecialchars(json_encode($obj));
+	     $json_output = json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+			 echo  $json_output ;
+       
+      // echo htmlspecialchars(json_encode($json_output));
 }
 catch(PDOException $e) {
-  echo $e->getMessage();
+	echo $e->getMessage();
 }
 
- ?>
+
+?>

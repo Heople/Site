@@ -65,12 +65,31 @@ console.log("lblbl1");
       console.log($tabrec);
 
          $i= $i+1;
-         var ajout="<p> Exercice "+$i+" : "+$scope.Nom+"</p>";
-         $('.affichage').append(ajout);
          var exo1 = $scope.id_exe;
+         var ajout="<div class='bouton-remove '><p > Exercice "+$i+" : "+$scope.Nom+"</p><button id='"+$scope.id_exe+"' class='test'>Bouton</button></div>";
+         $('.affichage').append(ajout);
+
          $idtab.push(exo1);
          console.log($idtab);
 });
+
+
+
+$('body').on('click', '.test', function(){
+  // var temp = $(this).attr('class');
+  // console.log(temp);
+  // var temp1 = $(this).parent(temp);
+  // console.log(temp1);
+  $(this).parent().detach();
+  $id_exo = $(this).attr('id');
+  console.log("dfbfber");
+  $idtab = jQuery.grep($idtab, function(value) {
+   return value != $id_exo;
+
+ });
+});
+
+
            // $.ajax({
            //
            //         url: "php/add_exercice.php",

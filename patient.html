@@ -1,49 +1,43 @@
 <!DOCTYPE html>
- <!-- index.php !-->
- <html>
-      <head>
-           <title>softAOX | Display data from Mysql Database Using AngularJS with PHP</title>
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-           <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e-kiné - Rechercher un patient</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="controllers/patientcontroller.js"></script>
+  <title>Mes patients</title>
+</head>
 <body>
-            <br>
-            <br>
+  <br>
+              <br>
 
-            <br>
-            <br>
-           <div class="container" ng-app="sa_display">
-              <center><input type="text" ng-model="task" /></center>
-                <h3 align="center">Vos patients</h3>
-                <div ng-controller="controller" ng-init="display_data()">
-                     <table class="table table-bordered">
-                          <tr>
-                               <th>ID</th>
-                               <th>Name</th>
-                               <th>Email</th>
-                               <th>Age</th>
-                          </tr>
-                          <tr ng-repeat="x in names|filter: task track by $index">
-                            	<td>{{x.id}}</td>
-                              <td>{{x.name}}</td>
-                              <td>{{x.email}}</td>
-                              <td>{{x.age}}</td>
-                          </tr>
-                     </table>
-                </div>
-           </div>
+              <br>
+              <br>
+             <div class="container" ng-app="sa_display">
+                <center><input type="text" ng-model="task" /></center>
+                  <h3 align="center">Vos patients</h3>
+                  <div ng-controller="patientcontroller">
+                       <table class="table table-bordered">
+                            <tr>
+                                 <th>Id</th>
+                                 <th>Nom</th>
+                                 <th>Email</th>
+                                 <th>Age</th>
+                            </tr>
+                            <tr ng-repeat="x in noms |filter: task">
+                              	<td>{{x.Id}}</td>
+                                <td>{{x.Nom}}</td>
+                                <td>{{x.Email}}</td>
+                                <td>{{x.Age}}</td>
+                            </tr>
+                       </table>
+                       <div class=div-test></div>
+                  </div>
+             </div>
 
- <script>
- var app = angular.module("sa_display",[]);
- app.controller("controller", function($scope, $http){
-      $scope.display_data = function(){
-           $http.get("php/patients.php")
-           .success(function(data){
-                $scope.names = data;
-           });
-      }
- });
- </script>
-      </body>
-
-<html>
+</body>
+</html>
