@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
     <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="controllers/programmecontroller.js"></script>
+    <script type="text/javascript" src="js/louise.js"></script>
     <!-- <script type="text/javascript" src="js/js.js"></script> -->
   </head>
   <body ng-app="myapp">
@@ -27,19 +28,32 @@
       <img src="img/body.png" alt="">
     </div>
     <div ng-controller="programmecontroller" class="prog-container">
+      <h1>Entrez le nom du programme</h1>
+      <div>
+        <input class="titre-prog" placeholder="Ex : Titre du programme"  type="" ng-model="TitreProgramme"  />
+    </div>
       <h1>Entrez le nom d'un exercice</h1>
       <div>
         <input class="search-bar-exos" placeholder="Ex : triple salto du bras droit." list="listeExercice" type="" ng-model="SelectExercice" ng-change="Truc(SelectExercice)" />
         <datalist id="listeExercice">
-            <option ng-repeat="exercice in exercices" value="{{exercice.nom}}">
+            <option ng-repeat="exercice in exercices" value="{{exercice.Nom}}">
         </datalist>
     </div>
-    <h3>Titre : {{nom}}</h3>
-      <p>Description</p>
-      <p class="description" style="width: 500px;">{{description}}</p>
+    <br/>
+    <br />
+    Fréquence : <input id=frequence></input> Récurrence <input id=recurrence></input>
 
+    <h3>Titre : {{Nom}}</h3>
+       <p>Description</p>
+      <p class="description" style="width: 500px;">{{Description}}</p>
+
+      <button class="add-exercice" ng-model="SelectExercice" ng-click="AddExercice">Ajouter cet exercice</button>
+      <button class="add-programme" ng-model="AddtExercice" ng-click="AddProgramme">Ajouter ce programme</button>
+    </div>
+    <div class="affichage">
     </div>
   </div>
+
 
 
 

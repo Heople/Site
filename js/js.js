@@ -7,7 +7,7 @@ $(document).ready(function() {
 var json = [
     {nom: "Ouadhi", prenom:"samy", age: 20},
     {nom: "Bouque", prenom:"louise", age: 21},
-    {nom: "Triple salto du bras droit", prenom:"NIQUE ADRIEN MONTEL", age: 20}
+    {nom: "Triple salto du bras droit", prenom:"ADRIEN MONTEL", age: 20}
 ]
 
 let data = [];
@@ -32,6 +32,7 @@ $.each(json, function(i, obj){
   if (obj.nom == val) {
     console.log("ok");
     $('.description').html(obj.prenom);
+    liste+=obj;
   }
 });
 
