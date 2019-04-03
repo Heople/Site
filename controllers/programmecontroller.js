@@ -3,6 +3,10 @@ var app=angular.module('myapp',[]);
 $i=0;
       //REQUETE RECUPERATION BDD
       //CONVERSION EN JSON
+      Cookies.get('id');
+       console.log(Cookies.get('id'));
+       var Idpatient = Cookies.get('id');
+       console.log(Idpatient);
 $(".search-bar-exos").click(function() {
           $.ajax({
                   url: "php/plateforme.php",
@@ -111,7 +115,7 @@ $('.add-programme').click(function() {
 
                        url: "php/add_programme.php",
                        data:{
-                         titre : titre1, idtab : $idtab, tabfreq : $tabfreq, tabrec : $tabrec
+                         titre : titre1, idtab : $idtab, tabfreq : $tabfreq, tabrec : $tabrec, idpatient : Idpatient
                        },
                        type: 'post',
                        success: function(data) {

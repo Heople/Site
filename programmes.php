@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -8,6 +13,7 @@
     <title>e-kiné - Ajouter un programme à un patient</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
     <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script type="text/javascript" src="controllers/programmecontroller.js"></script>
     <script type="text/javascript" src="js/louise.js"></script>
     <!-- <script type="text/javascript" src="js/js.js"></script> -->

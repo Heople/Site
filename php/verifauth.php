@@ -4,6 +4,7 @@ session_start();
 
 $_SESSION['Login']=$_POST['Login'] ;
 $_SESSION['Password']=$_POST['Password'] ;
+
 // On vérifie si le champ Login n'est pas vide.
 // if ($_SESSION['Login']=='')
 // Si c'est le cas, le visiteur ne s'est pas loger et subit une redirection
@@ -34,7 +35,7 @@ $RealPasswd=$_SESSION['Password'];
 // Initialisation à Faux de la variable "L'utilisateur existe".
 $CheckUser=False;
 // On interroge la base de donnée Mysql sur le nom des users enregistrés
-$Requete ="Select Password,User From logkine";
+$Requete ="Select Password,User,Id From logkine";
 $Resultat = mysqli_query ( $DataBase, $Requete )  or  die(mysqli_error() ) ;
   while (  $ligne = mysqli_fetch_array($Resultat)  )
 {echo "User : ".$ligne['User'];
@@ -50,12 +51,20 @@ $Resultat = mysqli_query ( $DataBase, $Requete )  or  die(mysqli_error() ) ;
 
 // Si le couple est bon, c’est que l’utilisateur est le bon.
     {
-      $CheckUser=True;}
+      $CheckUser=True;
+      $_SESSION["Idkine"]=$ligne['Id'];
+      echo $_SESSION["Idkine"];
+      // echo $ligne['Id'];
+        {Header('Location: ../patient.php');} //à changer
+
+    }
+
+
 }
 }
 
 // Si l'utilisateur n'est toujours pas valide à la fin de la lecture tableau
-  if ( $CheckUser==False )
+    if ( $CheckUser==False )
 // Redirection vers la fenêtre de connexion.
-    {Header('Location:patients.php');}
+      {Header('Location: ../patients.php');}
 ?>

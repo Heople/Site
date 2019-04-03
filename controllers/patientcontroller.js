@@ -1,19 +1,24 @@
 
 var app = angular.module("sa_display",[]);
 app.controller('patientcontroller', function($scope){
-console.log("ça marche pas");
+
+
+
+console.log('ta mère le programme');
+
 
     $.ajax({
-        url: "php/patients.php",
-         // dataType:'json',
+        url: "php/patientphp.php",
+        dataType:'json',
         type: 'post',
         success: function(result) {
-        console.log(result);//ce qui est fait quand php a répondu
         // console.log("trucdetamère");
-                    $scope.noms=result;
-                    // console.log(JSON.stringify(result));
-                      console.log($scope.noms);
+        console.log(result);
+        $scope.noms = result;
+        $scope.$digest();
 
+       // console.log(JSON.stringify(result));
+      console.log($scope.noms);
 
      // var change = result.replace(/^\"|\"$/g, '')
       // var json = JSON.parse(change);
@@ -21,15 +26,26 @@ console.log("ça marche pas");
                     }
                 });
 
-  //
-  // $scope.noms = [
-  // {id: 1, name: "Louise", email:"louisebouque@gmail.com", age:21},
-  // {id: 2, name: "Samy", email:"samyouadhi@gmail.com", age:21}
-  // ]
-     // $scope.display_data = function(){
-     //      $http.get("display.php")
-     //      .success(function(data){
-     //           $scope.names = data;
-     //      });
-     // }
+
+$('body').on('click', '.profil', function() {
+  console.log("ta mère la salope de bouton");
+    var id= $(this).attr('id');
+    Cookies.set('id', id);
+    // console.log(Cookies.set('id', id));
+
+});
+
+//
+// $scope.noms = [
+// {id: 1, name: "Louise", email:"louisebouque@gmail.com", age:21},
+// {id: 2, name: "Samy", email:"samyouadhi@gmail.com", age:21}
+// ]
+   // $scope.display_data = function(){
+   //      $http.get("display.php")
+   //      .success(function(data){
+   //           $scope.names = data;
+   //      });
+   // }
+
+
 });

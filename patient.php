@@ -1,3 +1,10 @@
+<?php
+session_start();
+// echo $_SESSION['Idkine'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +15,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
   <script type="text/javascript" src="controllers/patientcontroller.js"></script>
   <title>Mes patients</title>
 </head>
@@ -28,11 +36,14 @@
                                  <th>Email</th>
                                  <th>Age</th>
                             </tr>
-                            <tr ng-repeat="x in noms |filter: task">
+                            <tr ng-repeat="x in noms | filter: task">
                               	<td>{{x.Id}}</td>
                                 <td>{{x.Nom}}</td>
                                 <td>{{x.Email}}</td>
                                 <td>{{x.Age}}</td>
+                                <td><a class='profil' id="{{x.Id}}" href="fichepatient.php">Voir le profil</a></td>
+ <!-- $_SESSION['idpatient'] = '{{x.Id}}';
+ echo $_SESSION['idpatient'] ;  -->
                             </tr>
                        </table>
                        <div class=div-test></div>
