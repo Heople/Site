@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: http://ekine.iut-velizy.uvsq.fr', true);
 session_start();
 
 ?>
