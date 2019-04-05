@@ -1,0 +1,30 @@
+<?php
+session_start();
+try {
+
+
+$daterdv=$_POST['daterdv'];
+$heurerdv=$_POST['heurerdv'];
+$id_patient=$_POST['id_patient'];
+	$id = new PDO('mysql:host=localhost;dbname=e_kine', 'root', '');
+	// $id->set_charset("utf8");
+	 $id->exec('SET NAMES "utf8"');
+//	$id = mysqli_connect("venus","lbouque","","lbouque");
+	$res = $id->query("INSERT INTO rdv (id_compte, id_kine, Date, Heure) VALUES ('".$id_patient."','"$_SESSION['Idkine']."','".$daterdv."', '".$heurerdv."') ;");
+echo  "INSERT INTO rdv (id_compte, id_kine, Date, Heure) VALUES ('".$id_patient."','"$_SESSION['Idkine']."','".$daterdv."', '".$heurerdv"') ;"
+		// echo "SELECT Id, Nom, Email, Age FROM `patient`, compte_kine WHERE patient.Id = compte_kine.id_compte AND `id_kine`='".$_SESSION['Idkine']."'";
+	    $obj = $res->fetchAll(PDO::FETCH_ASSOC);
+  // print_r($obj);
+	     // conversion en json
+       // $json_output =  htmlspecialchars(json_encode($obj));
+	     $json_output = json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+			  echo  $json_output ;
+
+      // echo htmlspecialchars(json_encode($json_output));
+}
+catch(PDOException $e) {
+	echo $e->getMessage();
+}
+
+?>

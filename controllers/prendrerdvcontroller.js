@@ -14,7 +14,7 @@ app.controller('prendrerdvcontroller', function($scope){
 
    $.ajax({
        url: "php/prendrerdvphp.php",
-       dataType:'json',
+        dataType:'json',
 
        type: 'post',
        success: function(result) {
@@ -46,14 +46,15 @@ app.controller('prendrerdvcontroller', function($scope){
 });
 
 $scope.Truc = function(val) {
-
+console.log("tamère");
    angular.forEach($scope.patients, function(item){
 
-     if (item.Nom == val) {
+     if (item.Nom+" "+item.Prenom == val) {
 
          $scope.Nom = item.Nom;
          $scope.Id=item.Id;
          console.log($scope.Id);
+
      }
 
    });
@@ -63,11 +64,14 @@ $scope.Truc = function(val) {
 
 
 $(".add_rdv").click(function() {
+  console.log("ca clique");
+  var id_patient=$scope.Id;
+  console.log(id_patient);
           $.ajax({
-                  url: "php/plateforme.php",
-                  dataType:'json',
+                  url: "php/add_rdv.php",
+                  // dataType:'json',
                   data : {
-                    patientrdv : patientrdv, daterdv : daterdv, heurerdv : heurerdv,
+                     daterdv : daterdv, heurerdv : heurerdv, id_patient : id_patient
                   },
                   type: 'post',
                   success: function(result) {

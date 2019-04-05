@@ -9,7 +9,7 @@ console.log('ta mère le programme');
 
     $.ajax({
         url: "php/patientphp.php",
-        dataType:'json',
+         dataType:'json',
         type: 'post',
         success: function(result) {
         // console.log("trucdetamère");

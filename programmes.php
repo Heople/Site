@@ -43,14 +43,14 @@ session_start();
       <div>
         <input class="search-bar-exos" placeholder="Ex : triple salto du bras droit." list="listeExercice" type="" ng-model="SelectExercice" ng-change="Truc(SelectExercice)" />
         <datalist id="listeExercice">
-            <option ng-repeat="exercice in exercices" value="{{exercice.Nom}}">
+            <option ng-repeat="exercice in exercices" value="{{exercice.Nom_exo}}">
         </datalist>
     </div>
     <br/>
     <br />
-    Fréquence : <input id=frequence></input> Récurrence <input id=recurrence></input>
+    Répétition : <input id=frequence></input> Durée : <input id=recurrence></input>
 
-    <h3>Titre : {{Nom}}</h3>
+    <h3>Titre : {{Nom_exo}}</h3>
        <p>Description</p>
       <p class="description" style="width: 500px;">{{Description}}</p>
 

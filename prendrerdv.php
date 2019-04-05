@@ -27,12 +27,12 @@ Choisir le patient :
     <option ng-repeat="patient in patients" value="{{patient.Nom}} {{patient.Prenom}}">
 </datalist><br/>
 <p ng-repeat="patient in patients">{{patient.Nom}}</p>
-Choisir la date (jj/mm/aaaa) : <input id='daterdv'></input><br/>
-Choisir l'heure : <input id='heurerdv'></input></br>
+Choisir la date (jj/mm/aaaa) : <input id='daterdv' required></input><br/>
+Choisir l'heure : <input id='heurerdv' required></input></br>
 Description de la prochaine séance : <input id='descriptionseancepro'></input>
 <button class='add_rdv'>Ajouter le rdv</button>
 <div class='echo'></div>
-<p>Nom : {{Nom}} </p>
+
 </div>
 </body>
 </html>

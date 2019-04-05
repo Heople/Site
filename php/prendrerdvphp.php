@@ -7,6 +7,7 @@ try {
 	 $id->exec('SET NAMES "utf8"');
 //	$id = mysqli_connect("venus","lbouque","","lbouque");
 	$res = $id->query("SELECT * FROM `patient`, compte_kine WHERE patient.Id = compte_kine.id_compte AND id_kine='".$_SESSION['Idkine']."'");
+
 	  // echo "SELECT Id, Nom, Email, Age FROM `patient`, compte_kine WHERE patient.Id = compte_kine.id_compte AND `id_kine`='".$_SESSION['Idkine']."'";
 	    $obj = $res->fetchAll(PDO::FETCH_ASSOC);
   // print_r($obj);

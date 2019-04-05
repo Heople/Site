@@ -44,9 +44,9 @@ console.log("lblbl1");
 
         angular.forEach($scope.exercices, function(item){
 
-          if (item.Nom == val) {
+          if (item.Nom_exo == val) {
               console.log(item.Description);
-              $scope.Nom = item.Nom;
+              $scope.Nom_exo = item.Nom_exo;
               console.log("blblb");
               $scope.Description = item.Description;
               $scope.id_exe = item.id_exe;
@@ -70,7 +70,7 @@ console.log("lblbl1");
 
          $i= $i+1;
          var exo1 = $scope.id_exe;
-         var ajout="<div class='bouton-remove '><p > Exercice "+$i+" : "+$scope.Nom+"</p><button id='"+$scope.id_exe+"' class='test'>Bouton</button></div>";
+         var ajout="<div class='bouton-remove '><p > Exercice "+$i+" : "+$scope.Nom_exo+"</p><button id='"+$scope.id_exe+"' class='test'>Bouton</button></div>";
          $('.affichage').append(ajout);
 
          $idtab.push(exo1);

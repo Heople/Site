@@ -30,7 +30,7 @@ try {
 while($ligne = $res1->fetch(PDO::FETCH_ASSOC)){
       print_r($ligne);
       for ($i = 0; $i < count($idtab); $i++) {
-        $res2 = $id->query("INSERT INTO prog_exe (id_prog, id_exe, Fréquence, Récurrence)
+        $res2 = $id->query("INSERT INTO prog_exe (id_prog, id_exe, Répétition, Durée)
         VALUES ($ligne[Id_prog], $idtab[$i], $tabfreq[$i], $tabrec[$i]);");
         echo "INSERT INTO prog_exe (id_prog, id_exe, Fréquence, Récurrence)
         VALUES ($ligne[Id_prog], $idtab[$i], $tabfreq[$i], $tabrec[$i]);";
