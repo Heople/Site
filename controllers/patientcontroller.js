@@ -1,51 +1,30 @@
-
-var app = angular.module("sa_display",[]);
-app.controller('patientcontroller', function($scope){
-
+var app = angular.module("sa_display", []); //définition du module angular utilisé
+app.controller('patientcontroller', function ($scope) { //controller utilisé pour récupérer les données et en paramètre la variable $scope qui va relier les données du controller à la vue 
 
 
-console.log('ta mère le programme');
-
-
-    $.ajax({
+    $.ajax({ //retourne la liste des patients 
         url: "php/patientphp.php",
-         dataType:'json',
+        dataType: 'json', // cet appel ajax ne retourne que des données en json
         type: 'post',
-        success: function(result) {
-        // console.log("trucdetamère");
-        console.log(result);
-        $scope.noms = result;
-        $scope.$digest();
-
-       // console.log(JSON.stringify(result));
-      console.log($scope.noms);
-
-     // var change = result.replace(/^\"|\"$/g, '')
-      // var json = JSON.parse(change);
-     $(".div-test").append(result);
-                    }
-                });
+        success: function (result) {
+            
+            console.log(result);
+            $scope.noms = result;
+            $scope.$digest();
+            console.log($scope.noms);
+            
+        }
+    });
 
 
-$('body').on('click', '.profil', function() {
-  console.log("ta mère la salope de bouton");
-    var id= $(this).attr('id');
-    Cookies.set('id', id);
-    // console.log(Cookies.set('id', id));
+    $('body').on('click', '.profil', function () { //quand on clique sur voir le profil, on récupère l'id du patient sur lequel on a cliqué
+        var id = $(this).attr('id');
+        Cookies.set('id', id);
+        
 
-});
+    });
 
-//
-// $scope.noms = [
-// {id: 1, name: "Louise", email:"louisebouque@gmail.com", age:21},
-// {id: 2, name: "Samy", email:"samyouadhi@gmail.com", age:21}
-// ]
-   // $scope.display_data = function(){
-   //      $http.get("display.php")
-   //      .success(function(data){
-   //           $scope.names = data;
-   //      });
-   // }
+    
 
 
 });

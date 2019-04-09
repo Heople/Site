@@ -1,54 +1,37 @@
-var app = angular.module("sa_display",[]);
-app.controller('add_patientcontroller', function($scope){
+var app = angular.module("sa_display", []); // définition du module angular utilisé
+app.controller('add_patientcontroller', function ($scope) { //controller utilisé pour récupérer les données et en paramètre la variable $scope qui va relier les données du controller à la vue 
 
 
 
-console.log('ta mère le programme');
 
-$("#add_patient").click(function() {
-  var nompatient=$('#nompatient').val();
-  var prenompatient=$('#prenompatient').val();
-  var naissancepatient=$('#naissancepatient').val();
-  var emailpatient=$('#emailpatient').val();
-  var telpatient=$('#telpatient').val();
-  var agepatient=$('#agepatient').val();
-  var antépatient=$('#antépatient').val();
-    $.ajax({
-        url: "php/add_patientphp.php",
-           // dataType:'json',
-         data:{ nompatient : nompatient, prenompatient : prenompatient, naissancepatient : naissancepatient, emailpatient : emailpatient, telpatient: telpatient, antépatient : antépatient, agepatient : agepatient
+   
 
-         },
-        type: 'post',
-        success: function(result) {
-        // console.log("trucdetamère");
-        console.log(result);
-        // $scope.noms = result;
-        // $scope.$digest();
+    $("#add_patient").click(function () { //ajouter un patient 
+        var nompatient = $('#nompatient').val(); //récupération des valeurs 
+        var prenompatient = $('#prenompatient').val();
+        var naissancepatient = $('#naissancepatient').val();
+        var emailpatient = $('#emailpatient').val();
+        var telpatient = $('#telpatient').val();
+        var agepatient = $('#agepatient').val();
+        var antépatient = $('#antépatient').val();
+        $.ajax({
+            url: "php/add_patientphp.php",
+            data: {
+                nompatient: nompatient, //transmission des valeurs au php
+                prenompatient: prenompatient,
+                naissancepatient: naissancepatient,
+                emailpatient: emailpatient,
+                telpatient: telpatient,
+                antépatient: antépatient,
+                agepatient: agepatient
 
-       // console.log(JSON.stringify(result));
-      // console.log($scope.noms);
+            },
+            type: 'post',
+            success: function (result) {
+                console.log(result);
 
-     // var change = result.replace(/^\"|\"$/g, '')
-      // var json = JSON.parse(change);
-     // $(".div-test").append(result);
-                    }
-                });
-});
-
-
-
-//
-// $scope.noms = [
-// {id: 1, name: "Louise", email:"louisebouque@gmail.com", age:21},
-// {id: 2, name: "Samy", email:"samyouadhi@gmail.com", age:21}
-// ]
-   // $scope.display_data = function(){
-   //      $http.get("display.php")
-   //      .success(function(data){
-   //           $scope.names = data;
-   //      });
-   // }
-
+            }
+        });
+    });
 
 });

@@ -1,29 +1,14 @@
 <?php
-// echo"TROLOLO";
+
 session_start();
-// echo $_SESSION['Idkine'];
+
 try {
-  // echo"TROLOLO";
-$Idpatient=$_POST['Idpatient'];
-	$id = new PDO('mysql:host=localhost;dbname=e_kine', 'root', '');
-	// $id->set_charset("utf8");
-	 $id->exec('SET NAMES "utf8"');
-//	$id = mysqli_connect("venus","lbouque","","lbouque");
-	$res = $id->query("SELECT Date, Heure, Nom, Prenom FROM `rdv`, patient WHERE `id_kine`='".$_SESSION['Idkine']."' AND rdv.id_compte=patient.Id");
-
-  // echo "SELECT Date,Heure FROM `rdv` WHERE `id_kine`='".$_SESSION['Idkine']."'";
-
-	  // echo "SELECT FeedBack FROM prog_exe, patient WHERE prog_exe.id_prog=patient.id_prog AND Id ='".$Idpatient."' ";
-	    $obj = $res->fetchAll(PDO::FETCH_ASSOC);
-
-  // print_r($obj);
-	     // conversion en json
-       // $json_output =  htmlspecialchars(json_encode($obj));
-	     $json_output = json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-
-			 echo  $json_output;
-
-      // echo htmlspecialchars(json_encode($json_output));
+    $Idpatient=$_POST['Idpatient']; //on récupère la variable IdPatient qui a été tranmise par l'appel ajax
+	$id = new PDO('mysql:host=localhost;dbname=e_kine', 'root', ''); //on se connecte à la base de données
+	$res = $id->query("SELECT Date, Heure, Nom, Prenom FROM `rdv`, patient WHERE `id_kine`='".$_SESSION['Idkine']."' AND rdv.id_compte=patient.Id"); //grâce à la requête on va chercher les infos dans la base de données
+    $obj = $res->fetchAll(PDO::FETCH_ASSOC); //on place les infos récupérées dans la variable $obj
+    $json_output = json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);   // on convertit $obj en json 
+    echo  $json_output; //on fait un echo pour renvoyer les données en json au controlleur
 }
 catch(PDOException $e) {
 	echo $e->getMessage();

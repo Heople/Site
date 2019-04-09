@@ -1,63 +1,60 @@
-var app=angular.module('myapp',[]);
-app.controller('fichepatientcontroller', function($scope){
-  Cookies.get('id');
-   console.log(Cookies.get('id'));
-   var Idpatient = Cookies.get('id');
-   console.log(Idpatient);
+var app = angular.module('myapp', []); // définition du module angular utilisé
+app.controller('fichepatientcontroller', function ($scope) { //controller utilisé pour récupérer les données et en paramètre la variable $scope qui va relier les données du controller à la vue 
 
-   $scope.Nom = "";
-   $scope.Id ="";
+    Cookies.get('id');
+    console.log(Cookies.get('id'));
+    var Idpatient = Cookies.get('id');
+    console.log(Idpatient);
 
-
-   $.ajax({
-       url: "php/fichepatientphp.php",
-       dataType:'json',
-       data: {
-         Idpatient : Idpatient },
-
-       type: 'post',
-       success: function(result) {
-         console.log(result[0]);
-         console.log(result[1]);
-         console.log(result[2]);
-         $('.echo').append(result);
-        console.log("trucdetamère");
-       $scope.donneespatient = result[0];
-       $scope.feedbackprog = result[1];
-       $scope.feedbackexo = result[2];
+    $scope.Nom = "";
+    $scope.Id = "";
 
 
-      // console.log(JSON.stringify(result));
-     console.log($scope.donneespatient);
+    $.ajax({ 
+        url: "php/fichepatientphp.php",
+        dataType: 'json',
+        data: {
+            Idpatient: Idpatient
+        },
 
-     $scope.$digest();
-     angular.forEach($scope.donneespatient, function(item){
-                   $scope.Id = item.Id;
-                   $scope.Nom = item.Nom;
-                   $scope.Prenom = item.Prenom;
-                   $scope.Email = item.Email;
-                   $scope.Tel = item.Tel;
-                   $scope.Age = item.Age;
-                   $scope.Antecedents = item.Antecedents;
-     $scope.$digest();
+        type: 'post',
+        success: function (result) {
+            console.log(result[0]); //résultat de la première requête
+            console.log(result[1]); //résultat de la deuxième requête
+            console.log(result[2]); //résultat de la troisième requête
+            $('.echo').append(result);
+            
+            $scope.donneespatient = result[0]; //on stocke les résultats des 3 requêtes dans 3 scopes différents 
+            $scope.feedbackprog = result[1];
+            $scope.feedbackexo = result[2];
 
-           });
-           angular.forEach($scope.feedbackprog, function(item){
-                         $scope.FeedBack = item.FeedBack;
-           $scope.$digest();
 
-                 });
-          angular.forEach($scope.feedbackexo, function(item){
-              $scope.FeedBackexo = item.FeedBackexo;
-         $scope.$digest();
-  });
+            
+            console.log($scope.donneespatient);
 
-     // console.log($scope.Nom);
+            $scope.$digest();
+            angular.forEach($scope.donneespatient, function (item) { //parcourt tous les objets du tableau json retourné par le php
+                $scope.Id = item.Id; //redéfinition des variables 
+                $scope.Nom = item.Nom;
+                $scope.Prenom = item.Prenom;
+                $scope.Email = item.Email;
+                $scope.Tel = item.Tel;
+                $scope.Age = item.Age;
+                $scope.Antecedents = item.Antecedents;
+                $scope.$digest(); //on refresh le scope
 
-    // var change = result.replace(/^\"|\"$/g, '')
-     // var json = JSON.parse(change);
+            });
+            angular.forEach($scope.feedbackprog, function (item) { //parcourt tous les objets du tableau json retourné par le php
+                $scope.FeedBack = item.FeedBack;//redéfinition des variables 
+                $scope.$digest(); //on refresh le scope
 
-}
-});
+            });
+            angular.forEach($scope.feedbackexo, function (item) { //parcourt tous les objets du tableau json retourné par le php
+                $scope.FeedBackexo = item.FeedBackexo; //redéfinition des variables 
+                $scope.$digest(); //on refresh le scope
+            });
+
+        }
+    });
 
 });

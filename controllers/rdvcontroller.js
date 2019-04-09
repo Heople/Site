@@ -1,53 +1,29 @@
-var app=angular.module('myapp',[]);
-app.controller('rdvcontroller', function($scope){
-  Cookies.get('id');
-   console.log(Cookies.get('id'));
-   var Idpatient = Cookies.get('id');
-   console.log(Idpatient);
+var app = angular.module('myapp', []); //définition du module angular utilisé
+app.controller('rdvcontroller', function ($scope) { //controller utilisé pour récupérer les données et en paramètre la variable $scope qui va relier les données du controller à la vue 
+    Cookies.get('id'); //récupération de l'id du patient sur lequel on travaille grâve à des cookies
+    console.log(Cookies.get('id'));
+    var Idpatient = Cookies.get('id');
+    console.log(Idpatient);
 
-   $scope.Nom = "";
-   $scope.Id ="";
+    $scope.Nom = "";
+    $scope.Id = "";
+    
+    $.ajax({
+        url: "php/rdvphp.php", //url où se trouve le php renvoyant la requete
+        dataType: 'json', // cet appel ajax ne retourne que des données en json
+        data: {
+            Idpatient: Idpatient
+        },
 
+        type: 'post',
+        success: function (result) { //lorsque un résultat est retourné :
+            console.log(result);
+            console.log($scope.result);
+            $scope.rdv = result; //on place le résultat de la requête dans $scope.rdv
+            $scope.$digest(); //on refresh le scope
+            
 
-   $.ajax({
-       url: "php/rdvphp.php",
-      dataType:'json',
-       data: {
-         Idpatient : Idpatient },
-
-       type: 'post',
-       success: function(result) {
-         console.log(result);
-         console.log($scope.result);
-         // console.log(result[1]);
-         // console.log(result[2]);
-         $('.echo').append(result);
-        console.log("trucdetamère");
-       $scope.rdv = result;
-       // $scope.feedbackprog = result[1];
-       // $scope.feedbackexo = result[2];
-
-
-      // console.log(JSON.stringify(result));
-     // console.log($scope.donneespatient);
-
-     $scope.$digest();
-     // angular.forEach($scope.rdv, function(item){
-     //               $scope.Date = item.Date;
-     //               $scope.Heure = item.Heure;
-     //
-     //
-     // $scope.$digest();
-     //
-     //       });
-
-
-     // console.log($scope.Nom);
-
-    // var change = result.replace(/^\"|\"$/g, '')
-     // var json = JSON.parse(change);
-
-}
-});
+        }
+    });
 
 });
