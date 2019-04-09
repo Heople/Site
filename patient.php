@@ -80,7 +80,23 @@ session_start();
                     <td>07 81 93 14 33</td>
                     <td>samyouadhi@gmail.com</td>
                     <td><a class='profil' id="{{x.Id}}" href="fichepatient.php">Voir le profil</a></td>
+                </tr>
+                <tr class="table-infos">
+                <!-- <tr ng-repeat="x in noms | filter: caractere"> -->
+                    <!--                    grâce au ng-repeat, on affiche les lignes une par une grâce aux données présentes dans le scope-->
 
+                    <!-- <td>{{x.Id}}</td>
+                    <td class="table-nom-patient">{{x.Nom}}</td>
+                    <td>{{x.Email}}</td>
+                    <td>{{x.Age}}</td> -->
+
+                    <!-- <td>582</td> -->
+                    <td class="table-nom-patient">Ouadhi</td>
+                    <td class="table-prenom-patient">Samy</td>
+                    <td>21</td>
+                    <td>07 81 93 14 33</td>
+                    <td>samyouadhi@gmail.com</td>
+                    <td><a class='profil' id="{{x.Id}}" href="fichepatient.php">Voir le profil</a></td>
                 </tr>
             </table>
 

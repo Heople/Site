@@ -197,13 +197,13 @@ header > h1{
   box-shadow: 0 0 10px 5px rgba(0,0,0,0.4);
 }
 
-.container-patientn, .prog-container {
+.container-patient, .prog-container {
   display: inline-block;
   width: calc(100vw - 220px);
 }
 
 .information-container{
-  padding: 40px 0 0 60px;
+  padding: 40px 0 0 40px;
   background-color: #EFF1F2;
   height: calc(100vh - 120px);
 }
@@ -254,10 +254,9 @@ textarea:focus, input:focus{
 .table-patients{
   margin: 50px 0 0 0;
   border: none;
-  border-collapse: 0;
-  border-spacing: 0;
   width: 80%;
   min-width: 850px;
+  border-spacing: 0 10px !important;
 }
 
 .table-head{
@@ -269,15 +268,23 @@ textarea:focus, input:focus{
 }
 
 .table-head> th{
-  width: 120px;
+  width: 130px;
+  border-collapse: separate;
   border-bottom: 20px solid #EFF1F2;
 }
 
 .table-infos{
   text-align: center;
   background-color: white;
-  margin: 50px 0 0 0;
+  /* margin: 50px 0 0 0; */
   height: 35px;
+  /* border-spacing: 10px 0 !important; */
+  padding: 5px;
+}
+
+.table-infos tr{
+  padding: 2px 5px;
+
 }
 
 
