@@ -11,7 +11,7 @@ html, body {
   font-family: myriad-pro, sans-serif;
   display: flex;
   flex-direction: row;
-
+  font-size: 16px;
 }
 
 *{
@@ -197,7 +197,7 @@ header > h1{
   box-shadow: 0 0 10px 5px rgba(0,0,0,0.4);
 }
 
-.container-patient{
+.container-patientn, .prog-container {
   display: inline-block;
   width: calc(100vw - 220px);
 }
@@ -256,10 +256,11 @@ textarea:focus, input:focus{
   border: none;
   border-collapse: 0;
   border-spacing: 0;
+  width: 80%;
+  min-width: 850px;
 }
 
 .table-head{
-  /* display: block; */
   border: 1px solid black;
   height: 70px;
   font-size: 20px;
@@ -276,6 +277,7 @@ textarea:focus, input:focus{
   text-align: center;
   background-color: white;
   margin: 50px 0 0 0;
+  height: 35px;
 }
 
 
@@ -283,6 +285,7 @@ textarea:focus, input:focus{
   width: 120px !important;
   text-align: left;
   padding-left: 10px;
+
 }
 
 .table-nom-patient{
@@ -301,6 +304,83 @@ textarea:focus, input:focus{
 .table-nom-email{
   width: 220px !important;
 }
+
+.profil{
+  text-transform: uppercase;
+  color: #297175;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.inputs-add-patient-general{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 50px;
+}
+
+.inputs-add-patient-general h3{
+  margin: 5px 0 10px 5px;
+  font-size: 15px;
+}
+
+.info-add-patient1, .info-add-patient2{
+  width: 70%;
+  min-width: 815px;
+  background-color: #EFF1F2;
+  padding: 20px;
+  margin: 30px 0;
+  height: 300px;
+}
+
+.flex-add{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.input-add-css{
+  display: block;
+  width: 350px;
+  height: 40px;
+  border: 0;
+  padding: 0 0 0 10px;
+  margin: 10px 0;
+}
+
+.add-antecedent{
+  margin: 10px 0 0 20px;
+  resize: none;
+  width: 500px;
+  height: 180px;
+  border: 0;
+  padding: 10px;
+}
+
+.add-patient{
+  display: block;
+  width: 220px;
+  height: 55px;
+  background-color: #4BB5C1;
+  color: white;
+  border: 0;
+  margin: 0 0 0 0;
+  font-size: 18px;
+}
+
+.add-patient:hover{
+  background-color: #339fa5;
+  cursor: pointer;
+}
+
+.add-patient:active{
+  background-color: #297175;
+  outline: none;
+  border: none;
+}
+
+
+
+
 
 
 
